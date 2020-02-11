@@ -27,7 +27,7 @@ Singularity uses these advances to build more reliable systems and applications.
 - Tim Harris
 - Orion Hodson
 - Rebecca Isaacs
-- ike Jones
+- Mike Jones
 - Steven Levi
 - Roy Levin
 - Nick Murphy
