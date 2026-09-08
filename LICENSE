@@ -1,21 +1,21 @@
-MIT License
+Microsoft Singularity RDK reference mirror — licensing notice
 
-Copyright (c) 2020 Me
+This repository contains a historical copy of Microsoft Research Singularity RDK
+materials. The repository-level file must not be interpreted as relicensing the
+upstream RDK source tree.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+The licensing terms for the Singularity RDK are the terms distributed with the
+original RDK materials. In this mirror, see in particular:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+    SOURCE/Singularity RDK 2.0 License.pdf
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+and any component-specific notices present inside the source tree.
+
+Repository-local documentation or metadata authored separately from the RDK may
+have its own terms only when those terms are stated explicitly for that material.
+No blanket MIT grant is made here for Microsoft Research source code or other
+third-party material.
+
+Original project provenance: Microsoft Research / Singularity project.
+This repository is maintained as a historical research reference, not as a claim
+of authorship or ownership of the upstream Singularity RDK.
