@@ -1,12 +1,28 @@
 # Microsoft Singularity RDK — upstream reference archive
 
-> **Status: Reference / Upstream historical source**
+> **Status: Reference / Historical upstream / CODE REVIEWED**
 >
 > To repo nie jest aktywnym projektem portfolio ani kodem autorskim właściciela mirroru. Służy jako historyczna referencja do Microsoft Research Singularity.
 
-## Co to jest
+## Co to jest za projekt
 
-Singularity był projektem badawczym Microsoft Research dotyczącym niezawodnych systemów, języków programowania, izolacji procesów i narzędzi weryfikacyjnych. RDK zawiera materiały źródłowe i kontekst architektoniczny związany z tym systemem.
+Repo zawiera historyczny Microsoft Singularity RDK 2.0: źródła, dokumentację, materiały buildowe i oryginalne pliki licencyjne. Nie jest to nowa implementacja ani fork rozwijany produktowo.
+
+## Do czego służy
+
+- badania architektury oryginalnego Singularity,
+- porównywanie SIP/Channels/Contracts/Exchange Heap,
+- analiza historycznych decyzji projektowych,
+- reprodukcja oryginalnego środowiska badawczego,
+- reference source dla clean-room/original experiments w `singularity-os`.
+
+## Stan projektu
+
+**Status: Reference / Historical upstream / CODE REVIEWED**
+
+Source audit potwierdził, że repo jest pełnym historycznym upstream tree, a nie małym własnym patchsetem. Zawiera m.in. `SOURCE/base`, projekty `.csproj/.sg`, dokumenty RDK i historyczne materiały developerskie.
+
+Najważniejszy znaleziony problem dotyczył provenance: root `LICENSE` deklarował zwykły MIT z `Copyright (c) 2020 Me`, co mogło sugerować blanket relicensing całego upstream RDK. Został zastąpiony neutralnym licensing notice wskazującym na oryginalne warunki RDK w `SOURCE/Singularity RDK 2.0 License.pdf` i component-specific notices.
 
 ## Provenance
 
@@ -24,35 +40,44 @@ Nie należy przypisywać właścicielowi tego repo autorstwa:
 
 ```text
 singularityrdk -> historical upstream reference
-singularity-os -> original active experimental implementation
+       │
+       └── concepts/reference only
+                ▼
+         singularity-os -> canonical original active implementation
+
+singularityos -> older/superseded experimental line
 ```
 
-`singularity-os` może inspirować się koncepcjami Singularity, ale powinien pozostać własną implementacją i dokumentować różnice. To repo nie jest zależnością buildową canonical projektu.
-
-## Do czego służy to repo
-
-- badania architektury oryginalnego Singularity,
-- porównywanie terminologii i kontraktów,
-- analiza SIP/Channels/Exchange Heap,
-- sprawdzanie historycznych decyzji projektowych,
-- zachowanie materiału źródłowego do celów edukacyjnych/research.
+`singularity-os` powinien pozostać własną implementacją i dokumentować różnice. To repo nie jest zależnością buildową canonical projektu i nie powinno być kopiowane wholesale do aktywnej linii bez sprawdzenia licencji/provenance.
 
 ## Build feasibility
 
-**Status: Historical / environment-specific**
+**Status: Historical / environment-specific / verification required**
 
 Nie deklarujemy współczesnej buildowalności bez odtworzenia oryginalnego środowiska RDK i weryfikacji pełnego toolchainu.
 
 ### Reference Gate SRDK-R1 — Reproduction
 
-**PASS:** istnieje dokładnie udokumentowane środowisko, wersje narzędzi i procedura pozwalająca odtworzyć historyczny build.  
-**FAIL:** repo jest opisywane jako współczesny, wspierany system gotowy do builda.
+**PASS:** dokładnie opisane wersje narzędzi i środowiska pozwalają odtworzyć historyczny build w izolowanej VM.  
+**FAIL:** samo posiadanie source tree jest traktowane jako dowód współczesnego build PASS.
+
+### Reference Gate SRDK-R2 — Provenance
+
+**Stan:** PASS dla repo-level attribution
+
+**PASS:** root dokumentacja jasno mówi, że tree pochodzi z Microsoft Research, a root notice nie próbuje relicencjonować całego upstreamu.  
+**FAIL:** repo sugeruje autorstwo właściciela mirroru lub blanket MIT/BSD dla całego RDK.
+
+### Reference Gate SRDK-R3 — Canonical isolation
+
+**Stan:** PASS
+
+**PASS:** `singularity-os` nie wymaga tego tree do builda i korzysta z niego jedynie jako research/reference.  
+**FAIL:** aktywny projekt zaczyna zależeć od skopiowanych upstream komponentów bez jawnej analizy licencji i architektury.
 
 ## Licensing / legal
 
-Warunki użycia pochodzą z oryginalnej dystrybucji RDK i plików licencyjnych towarzyszących źródłom. Należy respektować ich treść oraz pochodzenie poszczególnych komponentów.
-
-Repo nie powinno otrzymywać nowej licencji, która sugerowałaby własność całego upstream source tree.
+Warunki użycia poszczególnych materiałów pochodzą z oryginalnej dystrybucji RDK i component-specific notices. Root `LICENSE` jest teraz wyłącznie provenance/licensing notice i nie stanowi nowego grantu praw do upstream source tree.
 
 ## Maintenance policy
 
@@ -62,4 +87,4 @@ Dozwolone:
 - notatki badawcze,
 - reprodukcja historycznego środowiska.
 
-Nie dodajemy aktywnej roadmapy produktu ani niezależnych nowych funkcji do RDK. Nowe eksperymenty trafiają do `singularity-os` lub osobnego repo.
+Nie rozwijamy tego jako nowego produktu. Nowe eksperymenty trafiają do `singularity-os` lub osobnego clean-room repo.
